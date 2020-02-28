@@ -6,7 +6,6 @@ Our project is an application that utilizes a user provided song name, which is 
 
 ## User Story
 
-```
 AS A music lover
 I WANT to know the lyrics to my favorite songs
 SO THAT I can sing along
@@ -14,6 +13,8 @@ SO THAT I can sing along
 AS A music fan
 I WANT to know about the artists who perform these songs
 SO THAT I can compare the different versions of the songs
+
+### Acceptance Criteria
 
 GIVEN that I want more information about a song
 WHEN I type the name of the song into a text box
@@ -29,11 +30,11 @@ GIVEN that I may want more information about each artist
 WHEN I click on the artist info box (or links within)
 THEN I am taken to external websites with more about that artist
 
-++ BONUS ++
+### BONUS
+
 GIVEN that I'll probably want to hear the song I am reading about
-WHEN I click a button to Listen
-THEN the current version of the song plays
-```
+WHEN I click a button to Listen or View
+THEN the current version of the song plays or I see a video of it
 
 ## Application layout (see Wireframe.jpg)
 
@@ -43,3 +44,4 @@ Our application consists of an input field and submit button at the top of the a
 
 MusixMatch (https://developer.musixmatch.com/)
 Wikipedia (https://www.mediawiki.org/wiki/API:Main_page)
+potentially: YouTube, iTunes, Spotify
