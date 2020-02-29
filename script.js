@@ -4,7 +4,7 @@ $(function() {});
 // MUSIX MATCH INTERACTION
 //Declare variables for use in MusixMatch API calls
 var musixMatchAPIKey = "ff638efb051ac2658abd908eeca29217";
-var song = "somewhere over the rainbow";
+var song = "";
 var encodedSong = encodeURI(song);
 var resultsNUM = 3;
 
@@ -52,13 +52,14 @@ function getMusicMatch(encodedSong) {
 }
 
 //Search button function (assigned to ID #searchBtn currently), turns text input into song
-// $("#searchBtn").click(function (event) {
-// 	event.preventDefault();
-// 	var song = $("#searchInput").val();
-// 	console.log(event);
-// 	console.log(song);
-// getMusicMatch(encodedSong);
-// });
+
+$("#searchBtn").click(function (event) {
+event.preventDefault();
+var song = $("#searchBar").val();
+console.log(song);
+var encodedSong= encodeURI(song); 
+getMusicMatch(encodedSong);
+});
 
 function displayDeezer(result) {
 	console.log(result);
@@ -113,22 +114,45 @@ function getDeezer(song, artist) {
 }
 
 // Temporary song button function - will eventually be the function to show the results from Music Match
-function displayMusicMatch(result) {
+function displayMusicMatch(response) {
 	// temp assignments
-	songFromMM = "somewhere over the rainbow";
-	artistFromMM = "ariana grande";
+	$("#songList").empty();
+	var countMM;
+for (countMM = 0; countMM < resultsNUM; countMM++) {
+  
 
+	//Assigns song from MusicMatch
+	songFromMM = (JSON.parse(response).message.body.track_list[countMM].track.track_name);
+	console.log(songFromMM);
+	//Assigns artist from MusicMatch
+	artistFromMM = (JSON.parse(response).message.body.track_list[countMM].track.artist_name);
+	console.log(artistFromMM);
 	// eventually put in loop for all returned elements
+	// Log the SHARE lyrics URL for first result
+	idFromMM = (JSON.parse(response).message.body.track_list[countMM].track.track_id);
+	console.log(idFromMM);
 	var newSongBtn =
 		'<a class="songBtn panel-block"><p id="songName">' +
 		songFromMM +
 		'</p><p id="artistName">' +
 		artistFromMM +
-		"</p</a>";
+		'</p><p id="songID">'+idFromMM+'</a>';
 	$("#songList").append(newSongBtn);
 }
 
-displayMusicMatch("willberesponse");
+//Creating showLyrics function that triggers off song ID from musixmatch, to generate lyrics.
+function showLyrics (){
+	var queryURLMM =
+	"https://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.search?q_track="+ encodedSong +"&page_size="+ resultsNUM+"&page=1&s_track_rating=desc&apikey="+musixMatchAPIKey;
+
+//Query and console logging the object below
+$.ajax({
+	url: queryURLMM,
+	method: "GET"
+}).then(function(response) {
+
+},
+
 
 // Song button function (assigned to class songBtn)
 $(".songBtn").click(function(event) {
@@ -144,5 +168,7 @@ $(".songBtn").click(function(event) {
 		.children("#artistName")
 		.text();
 	getDeezer(selectedSong, selectedArtist);
-	//	showLyrics();
-});
+}));
+}}
+
+
