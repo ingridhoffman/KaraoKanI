@@ -48,39 +48,81 @@ function getMusicMatch(encodedSong) {
 			"MusicMatch response first track lyrics EDIT URL: " +
 				JSON.parse(response).message.body.track_list[0].track.track_edit_url
 		);
+		displayMusicMatch(response);
 	});
 }
 
 //Search button function (assigned to ID #searchBtn currently), turns text input into song
 
-$("#searchBtn").click(function (event) {
-event.preventDefault();
-var song = $("#searchBar").val();
-console.log(song);
-var encodedSong= encodeURI(song); 
-getMusicMatch(encodedSong);
+$("#searchBtn").click(function(event) {
+	event.preventDefault();
+	var song = $("#searchBar").val();
+	console.log(song);
+	var encodedSong = encodeURI(song);
+	getMusicMatch(encodedSong);
 });
+
+// Temporary song button function - will eventually be the function to show the results from Music Match
+function displayMusicMatch(response) {
+	// temp assignments
+	$("#songList").empty();
+	var countMM;
+	for (countMM = 0; countMM < resultsNUM; countMM++) {
+		//Assigns song from MusicMatch
+		var songFromMM = JSON.parse(response).message.body.track_list[countMM].track
+			.track_name;
+		console.log(songFromMM);
+		//Assigns artist from MusicMatch
+		var artistFromMM = JSON.parse(response).message.body.track_list[countMM]
+			.track.artist_name;
+		console.log(artistFromMM);
+		// eventually put in loop for all returned elements
+		// Log the SHARE lyrics URL for first result
+		var idFromMM = JSON.parse(response).message.body.track_list[countMM].track
+			.track_id;
+		console.log(idFromMM);
+		var newSongBtn =
+			'<a class="songBtn panel-block" id="' +
+			idFromMM +
+			'"><p id="songName">' +
+			songFromMM +
+			'</p><p id="artistName">' +
+			artistFromMM +
+			"</p></a>";
+		$("#songList").append(newSongBtn);
+	}
+
+	//Creating showLyrics function that triggers off song ID from musixmatch, to generate lyrics.
+	function showLyrics() {
+		var queryURLMM =
+			"https://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.search?q_track=" +
+			encodedSong +
+			"&page_size=" +
+			resultsNUM +
+			"&page=1&s_track_rating=desc&apikey=" +
+			musixMatchAPIKey;
+
+		//Query and console logging the object below
+		$.ajax({
+			url: queryURLMM,
+			method: "GET"
+		}).then(function(response) {});
+	}
+}
 
 function displayDeezer(result) {
 	console.log(result);
-	// var songShowing = result.data[0].title;
-	// var artistShowing = result.data[0].artist.name;
-	// var imageURL = result.data[0].artist.picture_big;
+	var artistShowing = result.data[0].artist.name;
+	var imageURL = result.data[0].artist.picture_big;
 	var playSample = result.data[0].preview;
-	// $("#songList").html(
-	// 	'<p class="panel-heading">' + songShowing + " by " + artistShowing + "</p>"
-	// );
-	// $("#songList").append(
-	// 	'<a class="panel-block" id="backResults">Back to Results (not functional)</a>'
-	// );
 
-	// var artistInfoBlock =
-	// 	'<h3 id="artistName">' +
-	// 	artistShowing +
-	// 	'</h3><img src="' +
-	// 	imageURL +
-	// 	'" alt="Artist Image">';
-	// 	$("#artistBox").html(artistInfoBlock);
+	var artistInfoBlock =
+		'<h3 id="artistName">' +
+		artistShowing +
+		'</h3><img src="' +
+		imageURL +
+		'" alt="Artist Image">';
+	$("#artistBox").html(artistInfoBlock);
 
 	var playBox =
 		'<div id="playBox"><h3>Play Sample:</h3><audio controls><source src="' +
@@ -113,49 +155,9 @@ function getDeezer(song, artist) {
 	});
 }
 
-// Temporary song button function - will eventually be the function to show the results from Music Match
-function displayMusicMatch(response) {
-	// temp assignments
-	$("#songList").empty();
-	var countMM;
-for (countMM = 0; countMM < resultsNUM; countMM++) {
-  
-
-	//Assigns song from MusicMatch
-	songFromMM = (JSON.parse(response).message.body.track_list[countMM].track.track_name);
-	console.log(songFromMM);
-	//Assigns artist from MusicMatch
-	artistFromMM = (JSON.parse(response).message.body.track_list[countMM].track.artist_name);
-	console.log(artistFromMM);
-	// eventually put in loop for all returned elements
-	// Log the SHARE lyrics URL for first result
-	idFromMM = (JSON.parse(response).message.body.track_list[countMM].track.track_id);
-	console.log(idFromMM);
-	var newSongBtn =
-		'<a class="songBtn panel-block"><p id="songName">' +
-		songFromMM +
-		'</p><p id="artistName">' +
-		artistFromMM +
-		'</p><p id="songID">'+idFromMM+'</a>';
-	$("#songList").append(newSongBtn);
-}
-
-//Creating showLyrics function that triggers off song ID from musixmatch, to generate lyrics.
-function showLyrics (){
-	var queryURLMM =
-	"https://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.search?q_track="+ encodedSong +"&page_size="+ resultsNUM+"&page=1&s_track_rating=desc&apikey="+musixMatchAPIKey;
-
-//Query and console logging the object below
-$.ajax({
-	url: queryURLMM,
-	method: "GET"
-}).then(function(response) {
-
-},
-
-
 // Song button function (assigned to class songBtn)
-$(".songBtn").click(function(event) {
+$("a").click(function(event) {
+	console.log("Deezer called");
 	event.preventDefault();
 
 	// SongName on selected button (or should we just use the global song variable?)
@@ -168,7 +170,4 @@ $(".songBtn").click(function(event) {
 		.children("#artistName")
 		.text();
 	getDeezer(selectedSong, selectedArtist);
-}));
-}}
-
-
+});
