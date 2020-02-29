@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!-- INGRID WAS HERE -->
+		<title>Sing or Sit</title>
+		<!-- END INGRID -->
 
-	<title>????</title>
+		<!-- Stylesheets -->
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css"
+		/>
+		<link rel="stylesheet" type="text/css" href="style.css" />
 
-	<!-- Stylesheets -->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css" />
-	<link rel="stylesheet" type="text/css" href="style.css" />
-
-<!-- Scripts -->
+		<!-- Scripts -->
 		<script
 			defer
 			src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
@@ -27,50 +31,60 @@
 			src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
 		></script>
 		<script defer src="script.js"></script>
-</head>
+	</head>
 
-<body>
-	<header class="section is-11 is-offset-1 ">
-		<!-- Page Name, Description, & maybe Hero Image -->
-		<div class="columns">
-			<div class="column">
-				<h1 class="title has-text-centered">Artist lookup</h1>
-				<div class="columns is-mobile">
-					<div class="column">
-						<p class="subtitle has-text-centered">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, sit.</p>
+	<body>
+		<header class="section is-11 is-offset-1 ">
+			<!-- Page Name, Description, & maybe Hero Image -->
+			<div class="columns">
+				<div class="column">
+					<!-- INGRID WAS HERE -->
+					<h1 class="title has-text-centered">Should I Karaoke This?</h1>
+					<!-- END INGRID -->
+					<div class="columns is-mobile">
+						<div class="column">
+							<p class="subtitle has-text-centered">
+								Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut,
+								sit.
+							</p>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
 
-		<!-- Search bar -->
-		<nav class="columns">
-			<div class="column">
-				<h2>Search here for song</h2>
-				<div class="column is-mobile">
-					<div class="box has-text-left">search bar here</div>
+			<!-- Search bar -->
+			<nav class="columns">
+				<div class="column">
+					<h2>Search here for song</h2>
+					<div class="column is-mobile">
+						<div class="box has-text-left">search bar here</div>
+					</div>
 				</div>
+			</nav>
+		</header>
+
+		<!-- All the primary content -->
+		<main class="section">
+			<div class="columns">
+				<!-- List of songs or artist info -->
+				<aside class="column is-5 box">
+					<!-- INGRID WAS HERE -->
+					<nav class="panel" id="songList">
+						<p class="panel-heading">
+							Song Versions:
+						</p>
+					</nav>
+					<!-- END INGRID -->
+				</aside>
+
+				<!-- Song lyrics and maybe "play" button -->
+				<article class="column is-7 box">
+					<h2>Song Lyrics</h2>
+				</article>
 			</div>
-		</nav>
-	</header>
+		</main>
 
-	<!-- All the primary content -->
-	<main class="section">
-		<div class="columns">
-			<!-- List of songs or artist info -->
-			<aside class="column is-5 box">
-				<h2>Versions of Song</h2>
-			</aside>
-
-			<!-- Song lyrics and maybe "play" button -->
-			<article class="column is-7 box">
-				<h2>Song Lyrics</h2>
-			</article>
-		</div>
-	</main>
-
-	<!-- Do we need anything here? Copyright? Contact? -->
-	<footer class="section">End of page</footer>
-</body>
-
+		<!-- Do we need anything here? Copyright? Contact? -->
+		<footer class="section">End of page</footer>
+	</body>
 </html>
