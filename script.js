@@ -1,10 +1,6 @@
 // jQuery
 $(function() {});
 
-
-// INGRID, ALL OF MY WORK IS INSIDE MUSIX MATCH INTERACTION
-// I have added nothing beyond the function call for getMusicMatch
-
 // MUSIX MATCH INTERACTION
 //Declare variables for use in MusixMatch API calls
 var musixMatchAPIKey = "ff638efb051ac2658abd908eeca29217";
@@ -37,6 +33,7 @@ function getMusicMatch(encodedSong) {
 		console.log("MusicMatch response first track lyrics EDIT URL: " +JSON.parse(response).message.body.track_list[0].track.track_edit_url);
 	});
 }
+
 //Search button function (assigned to ID #searchBtn currently), turns text input into song
 // $("#searchBtn").click(function (event) {
 // 	event.preventDefault();
@@ -45,6 +42,16 @@ function getMusicMatch(encodedSong) {
 // 	console.log(song);
 getMusicMatch(encodedSong);
 // });
+
+// INGRID WORKED HERE:
+function displayDeezer(result) {
+	console.log("Deezer ID: " + result.data[0].id);
+	console.log("Artist: " + result.data[0].artist.name);
+	console.log("Link to Artist: " + result.data[0].artist.link);
+	console.log("Link to Track: " + result.data[0].link);
+	$("#songList").append("<p>Deezer Results Here</p>");
+}
+
 // DEEZER INTERACTION
 function getDeezer(song, artist) {
 	console.log("Ask Deezer: " + song);
@@ -57,7 +64,6 @@ function getDeezer(song, artist) {
 		'" track:"' +
 		song +
 		'"';
-
 	// Get data from Deezer API
 	$.ajax({
 		url: queryURL,
@@ -66,11 +72,42 @@ function getDeezer(song, artist) {
 		},
 		method: "GET"
 	}).then(function(response) {
-		console.log("Deezer Response: " + response);
-		console.log("Artist: " + response.data[0].artist.name);
-		console.log("Link to Artist: " + response.data[0].artist.link);
-		console.log("Link to Track: " + response.data[0].link);
+		displayDeezer(response);
 	});
 }
 
-getDeezer("gooey", "glass animals");
+// Temporary song button function - will eventually be the function to show the results from Music Match
+function displayMusicMatch(result) {
+	// temp assignments
+	songFromMM = "somewhere over the rainbow";
+	artistFromMM = "ariana grande";
+
+	// eventually put in loop for all returned elements
+	var newSongBtn =
+		'<a class="songBtn panel-block"><p id="songName">' +
+		songFromMM +
+		'</p><p id="artistName">' +
+		artistFromMM +
+		"</p</a>";
+	$("#songList").append(newSongBtn);
+}
+
+displayMusicMatch("willberesponse");
+
+// Song button function (assigned to class songBtn)
+$(".songBtn").click(function(event) {
+	event.preventDefault();
+
+	// SongName on selected button (or should we just use the global song variable?)
+	var selectedSong = $(this)
+		.children("#songName")
+		.text();
+
+	// ArtistName on selected button (or should we just use the global song variable?)
+	var selectedArtist = $(this)
+		.children("#artistName")
+		.text();
+	getDeezer(selectedSong, selectedArtist);
+});
+
+// END INGRID ADD
