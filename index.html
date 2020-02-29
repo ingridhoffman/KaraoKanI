@@ -11,22 +11,11 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css" />
 	<link rel="stylesheet" type="text/css" href="style.css" />
 
-<!-- Scripts -->
-		<script
-			defer
-			src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
-		></script>
-		<script
-			defer
-			src="https://code.jquery.com/jquery-3.4.1.min.js"
-			integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-			crossorigin="anonymous"
-		></script>
-		<script
-			defer
-			src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
-		></script>
-		<script defer src="script.js"></script>
+	<!-- Scripts -->
+	<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+	<script defer src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script defer src="script.js"></script>
 </head>
 
 <body>
@@ -44,12 +33,12 @@
 		</div>
 
 		<!-- Search bar -->
-		<nav class="columns">
-			<div class="column">
-				<h2>Search here for song</h2>
-				<div class="column is-mobile">
-					<div class="box has-text-left">search bar here</div>
-				</div>
+		<nav class="columns" id="navBar">
+			<h2>Search here for song</h2>
+			<div class="columns">
+				<input class="column input is-four-fifths" placeholder="Search Here" id="searchBar" />
+				<!--There is an issue with this search bar and it is not on the same line as the bar itself-->
+				<button class="column button is-link" id="searchBtn">Search</button>
 			</div>
 		</nav>
 	</header>
