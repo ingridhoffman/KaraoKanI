@@ -1,20 +1,18 @@
 // jQuery
 $(function() {});
 
-// MUSIC MATCH INTERACTION
+// MUSIX MATCH INTERACTION
 //Declare variables for use in MusixMatch API calls
 var musixMatchAPIKey = "ff638efb051ac2658abd908eeca29217";
 var song = "somewhere over the rainbow";
+var encodedSong = encodeURI(song);
+var resultsNUM = 3;
 
 // AJAX call for song information, specifically via ?q_track variable
 // The URL we need to query song title (q_track). Note that you have to add the cors-anywhere element, see below sample
-function getMusicMatch(song) {
+function getMusicMatch(encodedSong) {
 	var queryURLMM =
-		"https://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.search?q_track=" +
-		song +
-		"&page_size=3&page=1&s_track_rating=desc&apikey=" +
-		musixMatchAPIKey;
-	console.log("url: " + queryURLMM);
+		"https://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.search?q_track="+ encodedSong +"&page_size="+ resultsNUM+"&page=1&s_track_rating=desc&apikey="+musixMatchAPIKey;
 
 	//Query and console logging the object below
 	$.ajax({
@@ -25,6 +23,14 @@ function getMusicMatch(song) {
 		console.log("MusicMatch query: " + queryURLMM);
 		// Log the resulting object
 		console.log("MusicMatch response: " + response);
+		// Log the track name for first result(WE WILL WANT TO ADJUST THE 'track_list[0]' TO GET INFO FOR EACH RESULT )
+		console.log("MusicMatch response first track title: " +JSON.parse(response).message.body.track_list[0].track.track_name);
+		// Log the artist name for first result
+		console.log("MusicMatch response first track artist name: " +JSON.parse(response).message.body.track_list[0].track.artist_name);
+		// Log the SHARE lyrics URL for first result
+		console.log("MusicMatch response first track lyrics SHARE URL: " +JSON.parse(response).message.body.track_list[0].track.track_share_url);
+		// Log the EDIT lyrics URL for first result
+		console.log("MusicMatch response first track lyrics EDIT URL: " +JSON.parse(response).message.body.track_list[0].track.track_edit_url);
 	});
 }
 
@@ -34,7 +40,7 @@ function getMusicMatch(song) {
 // 	var song = $("#searchInput").val();
 // 	console.log(event);
 // 	console.log(song);
-// INGRID PUT THIS ON HOLD FOR NOW  getMusicMatch(song);
+getMusicMatch(encodedSong);
 // });
 
 // INGRID WORKED HERE:
