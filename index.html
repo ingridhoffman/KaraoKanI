@@ -1,90 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-		<!-- INGRID WAS HERE -->
-		<title>Sing or Sit</title>
-		<!-- END INGRID -->
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-		<!-- Stylesheets -->
-		<link
-			rel="stylesheet"
-			href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css"
-		/>
-		<link rel="stylesheet" type="text/css" href="style.css" />
+	<!-- INGRID WAS HERE -->
+	<title>Sing or Sit</title>
+	<!-- END INGRID -->
 
-		<!-- Scripts -->
-		<script
-			defer
-			src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
-		></script>
-		<script
-			defer
-			src="https://code.jquery.com/jquery-3.4.1.min.js"
-			integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-			crossorigin="anonymous"
-		></script>
-		<script
-			defer
-			src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
-		></script>
-		<script defer src="script.js"></script>
-	</head>
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css" />
+	<link rel="stylesheet" type="text/css" href="style.css" />
 
-	<body>
-		<header class="section is-11 is-offset-1 ">
-			<!-- Page Name, Description, & maybe Hero Image -->
-			<div class="columns">
-				<div class="column">
-					<!-- INGRID WAS HERE -->
-					<h1 class="title has-text-centered">Should I Karaoke This?</h1>
-					<!-- END INGRID -->
-					<div class="columns is-mobile">
-						<div class="column">
-							<p class="subtitle has-text-centered">
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut,
-								sit.
-							</p>
-						</div>
+	<!-- Scripts -->
+	<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+	<script defer src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script defer src="script.js"></script>
+</head>
+
+<body>
+	<header class="section is-11 is-offset-1 ">
+		<!-- Page Name, Description, & maybe Hero Image -->
+		<div class="columns">
+			<div class="column">
+				<!-- INGRID WAS HERE -->
+				<h1 class="title has-text-centered">Should I Karaoke This?</h1>
+				<!-- END INGRID -->
+				<div class="columns is-mobile">
+					<div class="column">
+						<p class="subtitle has-text-centered">
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut,
+							sit.
+						</p>
 					</div>
 				</div>
 			</div>
-      
-		<!-- Search bar -->
-		<nav class="columns" id="navBar">
-			<h2>Search here for song</h2>
-			<div class="columns">
-				<input class="column input is-four-fifths" placeholder="Search Here" id="searchBar" />
-				<!--There is an issue with this search bar and it is not on the same line as the bar itself-->
-				<button class="column button is-link" id="searchBtn">Search</button>
-			</div>
-		</nav>
-	</header>
+
+
+			<!-- Search bar -->
+			<nav class="columns" id="navBar">
+				<h2>Search here for song</h2>
+				<div class="columns">
+					<input
+						class="column input is-four-fifths"
+						placeholder="Search Here"
+						id="searchBar"
+					/>
+					<!--There is an issue with this search bar and it is not on the same line as the bar itself-->
+					<button class="column button is-link" id="searchBtn">Search</button>
+				</div>
+			</nav>
+		</header>
 
 		<!-- All the primary content -->
 		<main class="section">
 			<div class="columns">
 				<!-- List of songs or artist info -->
 				<aside class="column is-5 box">
-					<!-- INGRID WAS HERE -->
 					<nav class="panel" id="songList">
 						<p class="panel-heading">
 							Song Versions:
 						</p>
 					</nav>
+					<!-- INGRID WAS HERE -->
+					<div id="artistBox"></div>
 					<!-- END INGRID -->
 				</aside>
 
-				<!-- Song lyrics and maybe "play" button -->
-				<article class="column is-7 box">
-					<h2>Song Lyrics</h2>
-				</article>
-			</div>
-		</main>
 
-		<!-- Do we need anything here? Copyright? Contact? -->
-		<footer class="section">End of page</footer>
-	</body>
+			<!-- Song lyrics and maybe "play" button -->
+			<article class="column is-6.5 box" id="lyricArea">
+				<h2>Song Lyrics</h2>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et molestiae similique, reprehenderit doloribus cumque ducimus expedita!</p>
+			</article>
+		</div>
+	</main>
+
+	<!-- Do we need anything here? Copyright? Contact? -->
+	<footer class="section">End of page</footer>
+</body>
+
 </html>

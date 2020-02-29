@@ -12,7 +12,12 @@ var resultsNUM = 3;
 // The URL we need to query song title (q_track). Note that you have to add the cors-anywhere element, see below sample
 function getMusicMatch(encodedSong) {
 	var queryURLMM =
-		"https://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.search?q_track="+ encodedSong +"&page_size="+ resultsNUM+"&page=1&s_track_rating=desc&apikey="+musixMatchAPIKey;
+		"https://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.search?q_track=" +
+		encodedSong +
+		"&page_size=" +
+		resultsNUM +
+		"&page=1&s_track_rating=desc&apikey=" +
+		musixMatchAPIKey;
 
 	//Query and console logging the object below
 	$.ajax({
@@ -24,18 +29,30 @@ function getMusicMatch(encodedSong) {
 		// Log the resulting object
 		console.log("MusicMatch response: " + response);
 		// Log the track name for first result(WE WILL WANT TO ADJUST THE 'track_list[0]' TO GET INFO FOR EACH RESULT )
-		console.log("MusicMatch response first track title: " +JSON.parse(response).message.body.track_list[0].track.track_name);
+		console.log(
+			"MusicMatch response first track title: " +
+				JSON.parse(response).message.body.track_list[0].track.track_name
+		);
 		// Log the artist name for first result
-		console.log("MusicMatch response first track artist name: " +JSON.parse(response).message.body.track_list[0].track.artist_name);
+		console.log(
+			"MusicMatch response first track artist name: " +
+				JSON.parse(response).message.body.track_list[0].track.artist_name
+		);
 		// Log the SHARE lyrics URL for first result
-		console.log("MusicMatch response first track lyrics SHARE URL: " +JSON.parse(response).message.body.track_list[0].track.track_share_url);
+		console.log(
+			"MusicMatch response first track lyrics SHARE URL: " +
+				JSON.parse(response).message.body.track_list[0].track.track_share_url
+		);
 		// Log the EDIT lyrics URL for first result
-		console.log("MusicMatch response first track lyrics EDIT URL: " +JSON.parse(response).message.body.track_list[0].track.track_edit_url);
-		displayMusicMatch(response);
+		console.log(
+			"MusicMatch response first track lyrics EDIT URL: " +
+				JSON.parse(response).message.body.track_list[0].track.track_edit_url
+		);
 	});
 }
 
 //Search button function (assigned to ID #searchBtn currently), turns text input into song
+
 $("#searchBtn").click(function (event) {
 event.preventDefault();
 var song = $("#searchBar").val();
@@ -44,13 +61,32 @@ var encodedSong= encodeURI(song);
 getMusicMatch(encodedSong);
 });
 
-// INGRID WORKED HERE:
 function displayDeezer(result) {
-	console.log("Deezer ID: " + result.data[0].id);
-	console.log("Artist: " + result.data[0].artist.name);
-	console.log("Link to Artist: " + result.data[0].artist.link);
-	console.log("Link to Track: " + result.data[0].link);
-	$("#songList").append("<p>Deezer Results Here</p>");
+	console.log(result);
+	// var songShowing = result.data[0].title;
+	// var artistShowing = result.data[0].artist.name;
+	// var imageURL = result.data[0].artist.picture_big;
+	var playSample = result.data[0].preview;
+	// $("#songList").html(
+	// 	'<p class="panel-heading">' + songShowing + " by " + artistShowing + "</p>"
+	// );
+	// $("#songList").append(
+	// 	'<a class="panel-block" id="backResults">Back to Results (not functional)</a>'
+	// );
+
+	// var artistInfoBlock =
+	// 	'<h3 id="artistName">' +
+	// 	artistShowing +
+	// 	'</h3><img src="' +
+	// 	imageURL +
+	// 	'" alt="Artist Image">';
+	// 	$("#artistBox").html(artistInfoBlock);
+
+	var playBox =
+		'<div id="playBox"><h3>Play Sample:</h3><audio controls><source src="' +
+		playSample +
+		'" type="audio/mpeg"></audio></div>';
+	// where to put this??
 }
 
 // DEEZER INTERACTION
@@ -134,4 +170,5 @@ $(".songBtn").click(function(event) {
 	getDeezer(selectedSong, selectedArtist);
 }));
 }}
-// END INGRID ADD
+
+
