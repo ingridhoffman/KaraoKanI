@@ -48,6 +48,7 @@ function getMusicMatch(encodedSong) {
 			"MusicMatch response first track lyrics EDIT URL: " +
 				JSON.parse(response).message.body.track_list[0].track.track_edit_url
 		);
+		displayMusicMatch(response);
 	});
 }
 
@@ -132,11 +133,11 @@ for (countMM = 0; countMM < resultsNUM; countMM++) {
 	idFromMM = (JSON.parse(response).message.body.track_list[countMM].track.track_id);
 	console.log(idFromMM);
 	var newSongBtn =
-		'<a class="songBtn panel-block"><p id="songName">' +
+		'<a class="songBtn panel-block" id="'+idfromMM+'"><p id="songName">' +
 		songFromMM +
 		'</p><p id="artistName">' +
 		artistFromMM +
-		'</p><p id="songID">'+idFromMM+'</a>';
+		'</p></a>';
 	$("#songList").append(newSongBtn);
 }
 
