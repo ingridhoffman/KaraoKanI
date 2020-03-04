@@ -4,9 +4,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-		<!-- INGRID WAS HERE -->
 		<title>Sing or Sit</title>
-		<!-- END INGRID -->
 
 		<!-- Stylesheets -->
 		<link
@@ -71,22 +69,25 @@
 				<!-- List of songs or artist info -->
 				<aside class="column is-5 box">
 					<nav class="panel" id="songList">
-						<p class="panel-heading">
-							Song Versions:
-						</p>
+						<!-- START REVISED - cut panel heading from html and moved it into script-->
+						<!-- END REVISED -->
 					</nav>
 					<div id="artistBox"></div>
 				</aside>
-
 				<!-- Song lyrics and maybe "play" button -->
-				<article class="column is-6.5 box" id="lyricArea">
-					<h2>Song Lyrics</h2>
-					<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Et
-						molestiae similique, reprehenderit doloribus cumque ducimus
-						expedita!
-					</p>
-				</article>
+				<!-- START REVISED - created separate boxes for playing song and showing lyrics-->
+				<div class="column is-6.5 box">
+					<div id="playBox"></div>
+					<article id="lyricArea">
+						<h2>Song Lyrics</h2>
+						<p>
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Et
+							molestiae similique, reprehenderit doloribus cumque ducimus
+							expedita!
+						</p>
+					</article>
+				</div>
+				<!-- END REVISED -->
 			</div>
 		</main>
 
