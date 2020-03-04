@@ -24,7 +24,7 @@ function displayMusicMatch(response) {
 		var artistFromMM = JSON.parse(response).message.body.track_list[countMM]
 			.track.artist_name;
 		console.log("Artist from MM: " + artistFromMM);
-		// Log the SHARE lyrics URL for first result
+		// Log the ID for first result
 		var idFromMM = JSON.parse(response).message.body.track_list[countMM].track
 			.track_id;
 		console.log("ID from MM: " + idFromMM);
@@ -53,6 +53,7 @@ function displayMusicMatch(response) {
 		getDeezer(selectedSong, selectedArtist);
 		// ID from selected button for Lyrics call
 		var selectedID = this.id;
+		console.log(selectedID);
 		showLyrics(selectedID);
 	});
 }
@@ -113,19 +114,29 @@ $("#searchBtn").click(function(event) {
 //Creating showLyrics function that triggers off song ID from musixmatch, to generate lyrics.
 function showLyrics(ID) {
 	console.log("ID of selected song: " + ID);
-	// var queryURLMM =
-	// 	"https://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.search?q_track=" +
-	// 	encodedSong +
-	// 	"&page_size=" +
-	// 	resultsNUM +
-	// 	"&page=1&s_track_rating=desc&apikey=" +
-	// 	musixMatchAPIKey;
+	 var queryURLMMLyrics =
+	 	"https://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=" +
+	 	ID +
+	 	"&apikey=" +
+	 	musixMatchAPIKey;
 
+		 console.log(queryURLMMLyrics);
 	//Query and console logging the object below
-	// $.ajax({
-	// 	url: queryURLMM,
-	// 	method: "GET"
-	// }).then(function(response) {});
+	 $.ajax({
+	 	url: queryURLMMLyrics,
+	 	method: "GET"
+	 }).then(function(response) {
+console.log(response);
+		var lyricsFromMM = JSON.parse(response).message.body.lyrics.lyrics_body;
+		console.log(lyricsFromMM);
+		var lyricPass = document.createElement("p");
+		lyricPass.setAttribute("class", "mxm-lyrics__content");
+		$(lyricPass).html(lyricsFromMM);
+		console.log(lyricPass);
+		
+		
+		$("#lyricArea").html(lyricsFromMM);
+	 });
 }
 
 // DEEZER INTERACTION
