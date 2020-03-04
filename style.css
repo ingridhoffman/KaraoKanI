@@ -1,26 +1,50 @@
-
-#lyricArea{
-    margin-left: 30px;
-    white-space: pre;
-}
-.mxm-lyrics__content{
-    white-space: pre;
-}
 /* page */
 body {
 	background-color: rgb(120, 59, 180);
 }
-.container {
+
+main {
 	padding: 20px;
-}
-/* text */
-h1 {
-	text-align: center;
-	margin: 40px;
-	font-size: 60pt;
-	color: white;
 }
 
 .field.has-addons {
 	justify-content: center;
+	margin-top: auto;
+}
+
+.hero-body {
+	padding-top: 3rem !important;
+	padding-bottom: 2rem !important;
+}
+/* text */
+h1 {
+	font-family: "Bungee Inline", cursive;
+	text-align: center;
+	margin-bottom: 160px;
+	font-size: 60pt;
+	color: white;
+}
+
+h2 {
+	font-size: 16pt;
+}
+
+h3 {
+	font-size: 18pt;
+	font-weight: bold;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+p {
+	font-size: 14pt;
+}
+
+/* elements */
+
+#lyricArea {
+	white-space: pre;
+}
+.mxm-lyrics__content {
+	white-space: pre;
 }

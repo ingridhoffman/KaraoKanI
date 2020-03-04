@@ -11,6 +11,7 @@
 			rel="stylesheet"
 			href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css"
 		/>
+		<link href="https://fonts.googleapis.com/css?family=Bungee+Inline&display=swap" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="style.css" />
 
 		<!-- Scripts -->
@@ -38,12 +39,15 @@
 				<!-- Page Title -->
 				<div class="container">
 					<h1>
-						Should I Karaoke This?
+						Karao Kan I ?
 					</h1>
+					<h3>
+						Do you really want to stand up and sing that song? Or maybe you should sit down and get another drink...
+					</h3>
 				</div>
 				<!-- Search Bar -->
-				<div class="container is-centered">
-					<div class="field has-addons is-justified-center">
+				<div class="container">
+					<div class="field has-addons">
 						<p class="control">
 							<input
 								class="input is-medium"
@@ -70,12 +74,12 @@
 			<div class="tile is-ancestor">
 				<div class="tile is-vertical">
 				  	<div class="tile">
-						<div class="tile is-parent is-vertical">
+						<div class="tile is-parent is-vertical is-4">
 					  	<article class="tile is-child notification">
 							<h2 id="listTitle">List of Songs</h2>
 							<nav class="panel" id="songList"></nav>
 					  	</article>
-					  	<article class="tile is-child notification">
+					  	<article class="tile is-child is-hidden-mobile notification">
 							<h2 id="artistTitle">Album Info</h2>
 							<div id="artistBox"></div>
 					  	</article>
