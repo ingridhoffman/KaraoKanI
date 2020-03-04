@@ -32,66 +32,76 @@
 	</head>
 
 	<body>
-		<header class="section is-11 is-offset-1">
-			<!-- Page Name, Description, & maybe Hero Image -->
-			<div class="columns">
-				<div class="column">
-					<h1 class="title has-text-centered">Should I Karaoke This?</h1>
-					<div class="columns is-mobile">
-						<div class="column">
-							<p class="subtitle has-text-centered">
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut,
-								sit.
-							</p>
-						</div>
+		<!-- Page Header -->
+		<header class="hero is-medium is-primary is-bold">
+			<div class="hero-body">
+				<!-- Page Title -->
+				<div class="container">
+					<h1>
+						Should I Karaoke This?
+					</h1>
+				</div>
+				<!-- Search Bar -->
+				<div class="container is-centered">
+					<div class="field has-addons is-justified-center">
+						<p class="control">
+							<input
+								class="input is-medium"
+								type="text"
+								id="searchBar"
+								placeholder="Song Name"
+							/>
+						</p>
+						<p class="control">
+							<input
+								class="button is-medium is-link"
+								type="submit"
+								id="searchBtn"
+								value="Search"
+							/>
+						</p>
 					</div>
 				</div>
 			</div>
-
-			<!-- Search bar -->
-			<nav class="columns" id="navBar">
-				<h2>Search here for song</h2>
-				<div class="columns">
-					<input
-						class="column input is-four-fifths"
-						placeholder="Search Here"
-						id="searchBar"
-					/>
-					<!--There is an issue with this search bar and it is not on the same line as the bar itself-->
-					<button class="column button is-link" id="searchBtn">Search</button>
-				</div>
-			</nav>
 		</header>
 
-		<!-- All the primary content -->
-		<main class="section">
-			<div class="columns">
-				<!-- List of songs or artist info -->
-				<aside class="column is-5 box">
-					<nav class="panel" id="songList">
-						<!-- START REVISED - cut panel heading from html and moved it into script-->
-						<!-- END REVISED -->
-					</nav>
-					<div id="artistBox"></div>
-				</aside>
-				<!-- Song lyrics and maybe "play" button -->
-				<!-- START REVISED - created separate boxes for playing song and showing lyrics-->
-				<div class="column is-6.5 box">
-					<div id="playBox"></div>
-					<article id="lyricArea">
-						<h2>Song Lyrics</h2>
-						<p>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Et
-							molestiae similique, reprehenderit doloribus cumque ducimus
-							expedita!
-						</p>
-					</article>
+		<!-- Page Content -->
+		<main class="container">
+			<div class="tile is-ancestor">
+				<div class="tile is-vertical">
+				  	<div class="tile">
+						<div class="tile is-parent is-vertical">
+					  	<article class="tile is-child notification">
+							<h2 id="listTitle">List of Songs</h2>
+							<nav class="panel" id="songList"></nav>
+					  	</article>
+					  	<article class="tile is-child notification">
+							<h2 id="artistTitle">Album Info</h2>
+							<div id="artistBox"></div>
+					  	</article>
+					</div>
+					<div class="tile">
+						<div class="tile is-parent is-vertical">
+					  	<article class="tile is-child notification">
+							<h2 id="playTitle">Play Sample</h2>
+							<div id="playBox"></div>
+					  	</article>
+					  	<article class="tile is-child notification">
+							<h2 id="lyricsTitle">Song Lyrics</h2>
+							<div id="lyricArea"></div>
+					  	</article>
+					</div>
 				</div>
-				<!-- END REVISED -->
 			</div>
 		</main>
 
-		<!-- Do we need anything here? Copyright? Contact? -->
-		<footer class="section">End of page</footer>
+		<!-- Page Footer -->
+		<footer class="footer">
+			<div class="content has-text-centered">
+			  <p>
+				by <a href="">Andrew McIntire</a> and <a href="">Ingrid Hoffman</a>.
+			  </p>
+			</div>
+		</footer>
 	</body>
 </html>
