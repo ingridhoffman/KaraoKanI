@@ -1,3 +1,11 @@
+
+#lyricArea{
+    margin-left: 30px;
+    white-space: pre;
+}
+.mxm-lyrics__content{
+    white-space: pre;
+}
 /* page */
 body {
 	background-color: rgb(120, 59, 180);
