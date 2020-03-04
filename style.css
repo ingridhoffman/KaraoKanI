@@ -1,22 +1,26 @@
-   #searchBar{
-       max-width: 80%;
-       height: 60px;
-   }
-   #navBar{
-       width: 100vw;
-       height: 100px;
-       display: flex;
-       justify-content: space-evenly;
-       align-items: center;
-       flex-direction: column;
-    }
-#searchBtn{
-   height: 60px;
-    }
+
 #lyricArea{
     margin-left: 30px;
     white-space: pre;
 }
 .mxm-lyrics__content{
     white-space: pre;
+}
+/* page */
+body {
+	background-color: rgb(120, 59, 180);
+}
+.container {
+	padding: 20px;
+}
+/* text */
+h1 {
+	text-align: center;
+	margin: 40px;
+	font-size: 60pt;
+	color: white;
+}
+
+.field.has-addons {
+	justify-content: center;
 }
