@@ -34,7 +34,7 @@ function displayMusicMatch(response) {
 			idFromMM +
 			'"><p id="songName">'+
 			songFromMM+
-			' -</p>&ensp;<p id="artistName">' +
+			'</p> <br> <p id="artistName">' +
 			artistFromMM +
 			"</p></a>";
 		$("#songList").append(newSongBtn);
