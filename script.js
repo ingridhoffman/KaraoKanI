@@ -34,11 +34,12 @@ function displayMusicMatch(response) {
 		var newSongBtn =
 			'<a class="songBtn panel-block" id="' +
 			idFromMM +
-			'"><p id="songName">' +
-			songFromMM +
-			'</p> <br> <p id="artistName">' +
+			'"><div id="songName">'+
+			songFromMM+
+			'</div>&nbsp;:&nbsp;<div id="artistName">' +
+
 			artistFromMM +
-			"</p></a>";
+			"</div></a>";
 		$("#songList").append(newSongBtn);
 	}
 	// Song button function (assigned to class songBtn) to listen for user selection
@@ -127,11 +128,11 @@ function displayDeezer(result) {
 	var playSample = result.data[0].preview;
 	// display infomration about the artist for the selected song
 	var infoBlock =
-		"<h3>" +
+		"<p>" +
 		songArtist +
-		"</h3><h2>" +
+		"</p><p>" +
 		songAlbum +
-		'</h2><img src="' +
+		'</p><img src="' +
 		imageURL +
 		'" alt="Album Cover">';
 	$("#artistBox").html(infoBlock);
