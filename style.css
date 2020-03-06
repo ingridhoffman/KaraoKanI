@@ -6,24 +6,21 @@
 }
 
 body {
-	background-color: rgb(120, 59, 180);
+	background-color: #390e4d;
 }
 
 main {
 	padding: 20px;
 }
 
-.field.has-addons {
-	margin-top: auto;
-}
-
-.hero-body {
-	padding-top: 3rem !important;
-	padding-bottom: 2rem !important;
-}
-
+/* hide initial page content until search */
 .hide {
 	display: none;
+}
+
+/* priority to stretch to align grid */
+.grow {
+	flex-grow: 10;
 }
 
 /* text */
@@ -35,6 +32,7 @@ h1 {
 	font-size: 96pt;
 }
 
+/* responsive sizing for title because Bulma didn't work for multiple breakpoints */
 @media only screen and (max-width: 1408px) {
 	h1 {
 		font-size: 72pt;
@@ -47,7 +45,7 @@ h1 {
 	}
 }
 
-/* default font */
+/* default font style*/
 h2,
 h3,
 p {
@@ -56,7 +54,7 @@ p {
 
 /* content headings */
 h2 {
-	font-size: 200%;
+	font-size: 150%;
 }
 
 /* page subtitle */
@@ -64,14 +62,31 @@ h3 {
 	font-weight: bold;
 	text-align: left;
 	color: white;
-	margin-bottom: 3rem;
 }
 
-p {
-	font-size: 14pt;
+#songName {
+	color: #491661;
+	font-weight: bold;
+}
+
+.songBtn:hover {
+	background-color: #e4dde7;
 }
 
 /* elements */
+.field.has-addons {
+	margin-top: 30px;
+}
+
+.hero-body {
+	padding-top: 3rem !important;
+	padding-bottom: 2rem !important;
+}
+
+.panel-block {
+	flex-direction: column;
+	align-items: flex-start !important;
+}
 
 #lyricArea {
 	white-space: pre;
