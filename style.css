@@ -1,4 +1,10 @@
 /* page */
+.hero {
+	background-image: url(Assets/karoka.jpg);
+	background-size: cover;
+	min-height: 600px;
+}
+
 body {
 	background-color: rgb(120, 59, 180);
 }
@@ -8,7 +14,6 @@ main {
 }
 
 .field.has-addons {
-	justify-content: center;
 	margin-top: auto;
 }
 
@@ -17,23 +22,44 @@ main {
 	padding-bottom: 2rem !important;
 }
 /* text */
+/* page title */
 h1 {
 	font-family: "Bungee Inline", cursive;
-	text-align: center;
-	margin-bottom: 160px;
-	font-size: 60pt;
+	text-align: left;
 	color: white;
+	font-size: 96pt;
 }
 
+@media only screen and (max-width: 1408px) {
+	h1 {
+		font-size: 72pt;
+	}
+}
+
+@media only screen and (max-width: 769px) {
+	h1 {
+		font-size: 60pt;
+	}
+}
+
+/* default font */
+h2,
+h3,
+p {
+	font-family: "Montserrat", sans-serif;
+}
+
+/* content headings */
 h2 {
-	font-size: 16pt;
+	font-size: 200%;
 }
 
+/* page subtitle */
 h3 {
-	font-size: 18pt;
 	font-weight: bold;
-	text-align: center;
-	margin-bottom: 20px;
+	text-align: left;
+	color: white;
+	margin-bottom: 3rem;
 }
 
 p {
