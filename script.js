@@ -32,17 +32,17 @@ function displayMusicMatch(response) {
 		var newSongBtn =
 			'<a class="songBtn panel-block" id="' +
 			idFromMM +
-			'"><p id="songName">'+
+			'"><div id="songName">'+
 			songFromMM+
-			'</p> <br> <p id="artistName">' +
+			'</div>&nbsp;:&nbsp;<div id="artistName">' +
 			artistFromMM +
-			"</p></a>";
+			"</div></a>";
 		$("#songList").append(newSongBtn);
 	}
 	// Song button function (assigned to class songBtn) to listen for user selection
 	$(".songBtn").click(function(event) {
 		event.preventDefault();
-		
+
 		// SongName on selected button
 		var selectedSong = $(this)
 			.children("#songName")
@@ -131,11 +131,11 @@ $("#playTitle").text('Play a Sample of this Song');
 	var playSample = result.data[0].preview;
 	// display infomration about the artist for the selected song
 	var infoBlock =
-		"<h3>" +
+		"<p>" +
 		songArtist +
-		"</h3><h2>" +
+		"</p><p>" +
 		songAlbum +
-		'</h2><img src="' +
+		'</p><img src="' +
 		imageURL +
 		'" alt="Album Cover">';
 	$("#artistBox").html(infoBlock);
