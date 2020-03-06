@@ -4,7 +4,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-		<title>Sing or Sit</title>
+		<title>Karao Kan I ?</title>
 
 		<!-- Stylesheets -->
 		<link
@@ -56,7 +56,9 @@
 								class="input is-medium"
 								type="text"
 								id="searchBar"
+								autofocus
 								placeholder="Song Name"
+								size="30"
 							/>
 						</p>
 						<p class="control">
@@ -73,27 +75,31 @@
 		</header>
 
 		<!-- Page Content -->
-		<main class="container hide">
+		<main class="container">
 			<div class="tile is-ancestor">
 				<div class="tile is-vertical">
 				  	<div class="tile">
 						<div class="tile is-parent is-vertical is-5">
-					  	<article class="tile is-child notification">
+						<!-- Song List -->
+						<article class="tile is-child notification hide">
 							<h2 id="listTitle"></h2>
 							<nav class="panel" id="songList"></nav>
 					  	</article>
-					  	<article class="tile is-child is-hidden-mobile notification">
+						<!-- Album Info -->
+						<article class="tile is-child is-hidden-mobile notification hide grow">
 							<h2 id="artistTitle"></h2>
 							<div id="artistBox"></div>
 					  	</article>
 					</div>
 					<div class="tile">
 						<div class="tile is-parent is-vertical">
-					  	<article class="tile is-child notification">
+						<!-- Play Sample -->
+						<article class="tile is-child notification hide">
 							<h2 id="playTitle"></h2>
 							<div id="playBox"></div>
 					  	</article>
-					  	<article class="tile is-child notification">
+						<!-- Lyrics -->
+						<article class="tile is-child notification hide grow">
 							<h2 id="lyricsTitle"></h2>
 							<div id="lyricArea"></div>
 					  	</article>
@@ -106,7 +112,7 @@
 		<footer class="footer">
 			<div class="content has-text-centered">
 			  <p>
-				by <a href="">Andrew McIntire</a> and <a href="">Ingrid Hoffman</a>.
+				by <a href="https://github.com/imAnonAmi">Andrew McIntire</a> and <a href="https://github.com/ingridhoffman">Ingrid Hoffman</a>
 			  </p>
 			</div>
 		</footer>

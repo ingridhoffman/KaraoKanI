@@ -10,8 +10,6 @@ var resultsNUM = 3;
 
 // Function to show the results from MusixMatch
 function displayMusicMatch(response) {
-	// document.getElementById("hide").style.display = "block";
-	$(".hide").show();
 	// clear previous song list
 	$("#songList").empty();
 	$("#listTitle").text("Versions of this Song");
@@ -32,15 +30,17 @@ function displayMusicMatch(response) {
 			.track_id;
 
 		var newSongBtn =
-			'<a class="songBtn panel-block" id="' +
+			'<div class="songBtn panel-block" id="' +
 			idFromMM +
-			'"><div id="songName">'+
-			songFromMM+
-			'</div>&nbsp;:&nbsp;<div id="artistName">' +
-
+			'"><p id="songName">' +
+			songFromMM +
+			'</p><p id="artistName">' +
 			artistFromMM +
-			"</div></a>";
+			"</p></div>";
 		$("#songList").append(newSongBtn);
+		$("#songList")
+			.parent()
+			.show();
 	}
 	// Song button function (assigned to class songBtn) to listen for user selection
 	$(".songBtn").click(function(event) {
@@ -110,9 +110,12 @@ function showLyrics(ID) {
 
 		var lyricPass = document.createElement("p");
 		lyricPass.setAttribute("class", "mxm-lyrics__content");
-		$(lyricPass).html(lyricsFromMM);
+		$(lyricPass).text(lyricsFromMM);
 
-		$("#lyricArea").html(lyricsFromMM);
+		$("#lyricArea").html(lyricPass);
+		$("#lyricArea")
+			.parent()
+			.show();
 	});
 }
 
@@ -136,12 +139,18 @@ function displayDeezer(result) {
 		imageURL +
 		'" alt="Album Cover">';
 	$("#artistBox").html(infoBlock);
+	$("#artistBox")
+		.parent()
+		.show();
 	// display audio control to play sample of selected song
 	var playControl =
-		'<h2>Play Sample:</h2><audio controls><source src="' +
+		'<audio controls><source src="' +
 		playSample +
 		'" type="audio/mpeg"></audio>';
 	$("#playBox").html(playControl);
+	$("#playBox")
+		.parent()
+		.show();
 }
 
 // AJAX call to Deezer using information from button user selected
