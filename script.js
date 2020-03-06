@@ -10,9 +10,11 @@ var resultsNUM = 3;
 
 // Function to show the results from MusixMatch
 function displayMusicMatch(response) {
+	// document.getElementById("hide").style.display = "block";
+	$(".hide").show();
 	// clear previous song list
 	$("#songList").empty();
-	$("#listTitle").text('Versions of this Song');
+	$("#listTitle").text("Versions of this Song");
 	// temp button for troubleshooting
 	// loop through new results
 	var countMM;
@@ -20,21 +22,22 @@ function displayMusicMatch(response) {
 		//Assigns song from MusicMatch
 		var songFromMM = JSON.parse(response).message.body.track_list[countMM].track
 			.track_name;
-		
+
 		//Assigns artist from MusicMatch
 		var artistFromMM = JSON.parse(response).message.body.track_list[countMM]
 			.track.artist_name;
-		
+
 		// Log the ID for first result
 		var idFromMM = JSON.parse(response).message.body.track_list[countMM].track
 			.track_id;
-		
+
 		var newSongBtn =
 			'<a class="songBtn panel-block" id="' +
 			idFromMM +
 			'"><div id="songName">'+
 			songFromMM+
 			'</div>&nbsp;:&nbsp;<div id="artistName">' +
+
 			artistFromMM +
 			"</div></a>";
 		$("#songList").append(newSongBtn);
@@ -54,7 +57,7 @@ function displayMusicMatch(response) {
 		getDeezer(selectedSong, selectedArtist);
 		// ID from selected button for Lyrics call
 		var selectedID = this.id;
-		
+
 		showLyrics(selectedID);
 	});
 }
@@ -75,7 +78,6 @@ function getMusicMatch(encodedSong) {
 		url: queryURLMM,
 		method: "GET"
 	}).then(function(response) {
-	
 		displayMusicMatch(response);
 	});
 }
@@ -84,47 +86,42 @@ function getMusicMatch(encodedSong) {
 $("#searchBtn").click(function(event) {
 	event.preventDefault();
 	song = $("#searchBar").val();
-	
+
 	encodedSong = encodeURI(song);
 	getMusicMatch(encodedSong);
 });
 
 //Creating showLyrics function that triggers off song ID from musixmatch, to generate lyrics.
 function showLyrics(ID) {
-	$("#lyricsTitle").text('Song Lyrics - Sing away!');
-	
-	 var queryURLMMLyrics =
-	 	"https://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=" +
-	 	ID +
-	 	"&apikey=" +
-	 	musixMatchAPIKey;
+	$("#lyricsTitle").text("Song Lyrics - Sing away!");
 
-		 
+	var queryURLMMLyrics =
+		"https://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=" +
+		ID +
+		"&apikey=" +
+		musixMatchAPIKey;
+
 	//Query and console logging the object below
-	 $.ajax({
-	 	url: queryURLMMLyrics,
-	 	method: "GET"
-	 }).then(function(response) {
-
+	$.ajax({
+		url: queryURLMMLyrics,
+		method: "GET"
+	}).then(function(response) {
 		var lyricsFromMM = JSON.parse(response).message.body.lyrics.lyrics_body;
-		
+
 		var lyricPass = document.createElement("p");
 		lyricPass.setAttribute("class", "mxm-lyrics__content");
 		$(lyricPass).html(lyricsFromMM);
-		
-		
-		
+
 		$("#lyricArea").html(lyricsFromMM);
-	 });
+	});
 }
 
 // DEEZER INTERACTION
 // Function to display results from Deezer
 function displayDeezer(result) {
-
-// Adding in calls to title blocks
-$("#artistTitle").text('Album Information');
-$("#playTitle").text('Play a Sample of this Song');
+	// Adding in calls to title blocks
+	$("#artistTitle").text("Album Information");
+	$("#playTitle").text("Play a Sample of this Song");
 	var songArtist = result.data[0].artist.name;
 	var songAlbum = result.data[0].album.title;
 	var imageURL = result.data[0].album.cover_big;

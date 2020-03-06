@@ -2,7 +2,7 @@
 .hero {
 	background-image: url(Assets/karoka.jpg);
 	background-size: cover;
-	min-height: 600px;
+	min-height: 500px;
 }
 
 body {
@@ -21,6 +21,11 @@ main {
 	padding-top: 3rem !important;
 	padding-bottom: 2rem !important;
 }
+
+.hide {
+	display: none;
+}
+
 /* text */
 /* page title */
 h1 {
@@ -36,7 +41,7 @@ h1 {
 	}
 }
 
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 1012px) {
 	h1 {
 		font-size: 60pt;
 	}
