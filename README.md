@@ -40,4 +40,8 @@ Deezer (https://developers.deezer.com/)
 ## Deployed URL
 https://ingridhoffman.github.io/KaraoKanI/
 
+### Presentation Slide Deck
+https://docs.google.com/presentation/d/1ojTZMwOJy5Lmvht-gZ1JFYT50dV1Aq-opCk1jzTDobQ/edit#slide=id.p
+
+
 
