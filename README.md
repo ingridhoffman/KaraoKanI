@@ -37,3 +37,7 @@ Our application consists of an input field and submit button at the top of the a
 MusixMatch (https://developer.musixmatch.com/)
 Deezer (https://developers.deezer.com/)
 
+## Deployed URL
+https://ingridhoffman.github.io/KaraoKanI/
+
+
