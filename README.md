@@ -1,5 +1,4 @@
 # Karao Kan I?
-### Group Project 1: Server-side APIs, Git branching workflow, Agile software development
 
 **Karao Kan I?** is an application that helps users determine whether or not they are up to performing any given song at karaoke. **KKI?** asks the user to enter the name of a song and then displays a list of the top 3 versions of that song. The user can select a version from this list to view album information, song lyrics, and play a sample of the song. 
 
@@ -7,7 +6,7 @@ It's never been easier to decide whether you want to stand up and sing, or sit d
 
 <img src="https://github.com/ingridhoffman/KaraoKanI/blob/master/Assets/ingridhoffman.github.io_KaraoKanI_%20(1).png" width=90% />
 
-### Application Demonstration
+### View Application:
 https://ingridhoffman.github.io/KaraoKanI/
 
 # User Story
@@ -46,10 +45,22 @@ THEN the current version of the song plays or I see a video of it
 
 Our application consists of an input field and submit button at the top of the application. Upon submitting a song name, the top 3 versions will be listed on the left hand side of the screen (tablets/desktop). When a version is selected, additional information about the selected version (album cover) will be presented beneath the version results, and both an audio sample and the lyrics for the song will be displayed on the right hand side of the application (tablet/desktop). When scaled down to mobile, the layout switches to a column, and the album cover is automatically hidden to facilitate user review of information.
 
+### Technologies
+
+- HTML
+- CSS & Bulma (responsive design)
+- Javascript, Jquery
+
 ### Server APIs
 
-MusixMatch (https://developer.musixmatch.com/)
-Deezer (https://developers.deezer.com/)
+- MusixMatch (https://developer.musixmatch.com/)
+- Deezer (https://developers.deezer.com/)
+
+### Contributions
+- Javascript - Ingrid and Andrew
+- CSS/Bulma/HTML - Ingrid
+- Pseudocode & Documentation - Andrew
+- Presentation - Ingrid and Andrew
 
 ### Project Presentation
 https://docs.google.com/presentation/d/1ojTZMwOJy5Lmvht-gZ1JFYT50dV1Aq-opCk1jzTDobQ/edit#slide=id.p
