@@ -58,7 +58,7 @@ $(function () {
 	// The URL we need to query song title (q_track). Note that you have to add the cors-anywhere element, see below sample
 	function getMusicMatch(encodedSong) {
 		var queryURLMM =
-			"https://api.musixmatch.com/ws/1.1/track.search?q_track=" +
+			"https://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.search?q_track=" +
 			encodedSong +
 			"&page_size=" +
 			resultsNUM +
@@ -68,6 +68,9 @@ $(function () {
 		//Query and console logging the object below
 		$.ajax({
 			url: queryURLMM,
+			headers: {
+				"Access-Control-Allow-Origin": "*",
+			},
 			method: "GET",
 		}).then(function (response) {
 			displayMusicMatch(response);
@@ -96,6 +99,9 @@ $(function () {
 		//Query and console logging the object below
 		$.ajax({
 			url: queryURLMMLyrics,
+			headers: {
+				"Access-Control-Allow-Origin": "*",
+			},
 			method: "GET",
 		}).then(function (response) {
 			var lyricsFromMM = JSON.parse(response).message.body.lyrics.lyrics_body;
